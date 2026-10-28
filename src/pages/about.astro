@@ -1,14 +1,19 @@
 ---
 import Township from '../layouts/Township.astro';
-import { officials } from '../data/township';
+import { officials, initials } from '../data/township';
 ---
-<Township title="About the township">
-  <div class="wrap">
-    <h1>About Fernhollow Township</h1>
-    <p>Fernhollow Township is a fictional township used to demonstrate Nest Co.'s website work. The details here are invented.</p>
-    <h2>Who to contact</h2>
-    <ul class="people">{officials.map((o) => <li><strong>{o.name}</strong>{o.role}</li>)}</ul>
-    <h2>What the township does</h2>
-    <p>The township maintains local roads, runs fire and EMS service, administers zoning, keeps the cemetery and holds public meetings.</p>
+<Township title="About the township" heading="About Fernhollow Township" lead="Fernhollow Township is a fictional township used to demonstrate Nest Co.'s website work. The details here are invented.">
+  <div class="wrap body">
+    <div class="two" style="align-items:center">
+      <div>
+        <h2 style="margin-top:0">What the township does</h2>
+        <p>The township maintains local roads, runs fire and EMS service, administers zoning, keeps the cemetery and holds public meetings.</p>
+        <p>Trustees meet on the second Tuesday of each month. Everyone is welcome to attend and speak.</p>
+        <p><a href="/meetings"><strong>See the meeting schedule</strong> &rarr;</a></p>
+      </div>
+      <img class="photo" src="/img/meeting.svg" alt="Three trustees and two officers seated at the dais during a public meeting" width="800" height="520" />
+    </div>
+    <h2 style="margin-top:3rem">Who to contact</h2>
+    <ul class="people">{officials.map((o) => <li><span class="avatar" aria-hidden="true">{initials(o.name)}</span><span><strong>{o.name}</strong><span class="role">{o.role}</span></span></li>)}</ul>
   </div>
 </Township>

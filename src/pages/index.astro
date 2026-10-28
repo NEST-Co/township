@@ -1,32 +1,69 @@
 ---
 import Township from '../layouts/Township.astro';
-import { tasks, meetings, notices, events, site, fmtDate } from '../data/township';
+import Icon from '../components/Icon.astro';
+import { tasks, meetings, notices, events, site, fmtDate, dateParts } from '../data/township';
 const today = new Date().toISOString().slice(0, 10);
 const next = meetings.filter((m) => m.date >= today).sort((a, b) => a.date.localeCompare(b.date))[0] ?? meetings[0];
+const np = dateParts(next.date);
+const icons = ['zoning', 'records', 'roads', 'meetings', 'cemetery', 'contact'];
 ---
-<Township title="Fernhollow Township" description="Services, meetings, documents and notices for Fernhollow Township residents.">
-  <div class="hero"><div class="wrap">
-    <h1>Welcome to Fernhollow Township</h1>
-    <p>Find a form, a meeting date or a phone number in two clicks. The office is open {site.hours}</p>
-  </div></div>
+<Township home title="Fernhollow Township" description="Services, meetings, documents and notices for Fernhollow Township residents.">
+  <section class="hero-home" aria-labelledby="hero-h">
+    <img src="/img/hero-township.svg" alt="" width="1600" height="600" fetchpriority="high" />
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Fernhollow Township</p>
+        <h1 id="hero-h">Roads, records, zoning and meetings, all in one place.</h1>
+        <p class="sub">Find a form, a meeting date or a phone number in two clicks.</p>
+        <div class="btns"><a class="btn" href="/services">Township services</a><a class="btn ghost" href="/documents">Forms &amp; documents</a></div>
+      </div>
+      <aside class="next" aria-labelledby="next-h">
+        <h2 id="next-h">Next public meeting</h2>
+        <div class="row">
+          <div class="datebox" aria-hidden="true"><span class="m">{np.m}</span><span class="d">{np.d}</span></div>
+          <div><strong>{next.body}</strong><p>{fmtDate(next.date)}<br />{next.time}, {next.place}</p></div>
+        </div>
+        <a class="more" href="/meetings">Agendas and minutes</a>
+      </aside>
+    </div>
+  </section>
+
   <div class="wrap">
-    <h2>What do you need to do?</h2>
-    <ul class="grid">{tasks.map((t) => <li><a class="card" href={t.href}>{t.label}</a></li>)}</ul>
-    <div class="two">
-      <section>
-        <h2>Next meeting</h2>
-        <p><strong>{next.body}</strong><br />{fmtDate(next.date)} at {next.time}, {next.place}.</p>
-        <p><a href="/meetings">All meetings, agendas and minutes</a></p>
-        <h2>Coming up</h2>
-        <ul>{events.map((e) => <li><time datetime={e.date}>{fmtDate(e.date)}</time>: {e.title}, {e.place}</li>)}</ul>
+    <h2 class="visually-hidden">What do you need to do?</h2>
+    <ul class="tiles">{tasks.map((t, i) => (
+      <li><a class="tile" href={t.href}><span class="ico"><Icon name={icons[i]} /></span><span>{t.label}</span><span class="arrow" aria-hidden="true">&rarr;</span></a></li>
+    ))}</ul>
+
+    <div class="section cols">
+      <section aria-labelledby="notices-h">
+        <div class="section-head"><h2 id="notices-h">Notices</h2><a href="/notices">All notices</a></div>
+        {notices.slice(0, 3).map((n) => { const p = dateParts(n.date); return (
+          <article class="notice">
+            <div class="datebox" aria-hidden="true"><span class="m">{p.m}</span><span class="d">{p.d}</span></div>
+            <div><h3>{n.title}</h3><p><span class="visually-hidden">Posted </span><time datetime={n.date}>{fmtDate(n.date)}</time></p><p>{n.body}</p></div>
+          </article>
+        ); })}
       </section>
-      <section>
-        <h2>Notices</h2>
-        {notices.slice(0, 3).map((n) => (
-          <article><h3>{n.title}</h3><p><time datetime={n.date}>{fmtDate(n.date)}</time></p><p>{n.body}</p></article>
-        ))}
-        <p><a href="/notices">All notices</a></p>
+      <section aria-labelledby="events-h">
+        <div class="section-head"><h2 id="events-h">Coming up</h2></div>
+        <ul class="events">{events.map((e) => { const p = dateParts(e.date); return (
+          <li><div class="datebox" aria-hidden="true"><span class="m">{p.m}</span><span class="d">{p.d}</span></div>
+            <div><strong>{e.title}</strong><span class="meta"><time datetime={e.date}>{fmtDate(e.date)}</time> · {e.place}</span></div></li>
+        ); })}</ul>
       </section>
     </div>
   </div>
+
+  <section class="band" aria-labelledby="fire-h">
+    <div class="wrap">
+      <div class="pic"><img src="/img/station.svg" alt="Fernhollow Fire and EMS Station 1 with an engine in the middle bay" loading="lazy" width="800" height="520" /></div>
+      <div class="copy">
+        <p class="eyebrow">Fire &amp; EMS</p>
+        <h2 id="fire-h">Your volunteer department, ready around the clock</h2>
+        <p>Open house at Station 1 on November 7. Meet the crew, climb on the engine and learn how to check your smoke alarms.</p>
+        <ul><li>Burn permits are issued by the station.</li><li>Free smoke alarm checks for residents.</li><li>Volunteers welcome, and training is provided.</li></ul>
+        <a class="btn" href="/fire-ems">Fire &amp; EMS information</a>
+      </div>
+    </div>
+  </section>
 </Township>

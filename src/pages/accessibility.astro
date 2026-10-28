@@ -1,33 +1,32 @@
 ---
 import Township from '../layouts/Township.astro';
 ---
-<Township title="Accessibility statement" description="How this site was tested for accessibility, with the results.">
-  <div class="wrap">
-    <h1>Accessibility statement</h1>
+<Township title="Accessibility statement" heading="Accessibility statement" lead="How this site was tested, with the results." description="How this site was tested for accessibility, with the results.">
+  <div class="wrap body prose">
     <p>This site aims to meet WCAG 2.2 level AA. It is a concept project, so the township is fictional, but the tests below were run on this site.</p>
 
-    <h2>Test results, October 27, 2026</h2>
+    <h2>Test results, October 28, 2026</h2>
     <table>
-      <caption>Automated and scripted checks on all 11 pages (home, services, Fire &amp; EMS, meetings, documents, notices, about, contact, FAQ, accessibility, and the not-found page)</caption>
+      <caption>Automated and scripted checks, run after the October 28 redesign</caption>
       <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
       <tbody>
-        <tr><th scope="row">axe-core (WCAG 2.0 and 2.1 A and AA, plus best practices)</th><td>0 violations, on phone and desktop sizes</td></tr>
-        <tr><th scope="row">Lighthouse accessibility (10 pages, phone profile)</th><td>100 on every page</td></tr>
-        <tr><th scope="row">Lighthouse performance</th><td>99 to 100; pages weigh about 4 KB</td></tr>
-        <tr><th scope="row">Lighthouse best practices</th><td>100 on every page</td></tr>
+        <tr><th scope="row">axe-core (WCAG 2.0 and 2.1 A and AA, plus best practices)</th><td>0 violations on all 11 pages, at phone and desktop sizes</td></tr>
+        <tr><th scope="row">Lighthouse accessibility (5 pages: home, services, documents, meetings, about, phone profile)</th><td>100 on every page tested</td></tr>
+        <tr><th scope="row">Lighthouse performance</th><td>98 to 100; the home page, with its illustration, is the heaviest</td></tr>
+        <tr><th scope="row">Lighthouse best practices</th><td>100 on every page tested</td></tr>
         <tr><th scope="row">Keyboard</th><td>Skip link is the first stop and every stop shows a visible focus ring</td></tr>
         <tr><th scope="row">Reflow at 320 and 640 pixels wide</th><td>No horizontal scrolling</td></tr>
         <tr><th scope="row">Text spacing</th><td>No clipped text</td></tr>
-        <tr><th scope="row">Structure</th><td>One h1 per page, no skipped heading levels, every page has a title and description</td></tr>
+        <tr><th scope="row">Structure</th><td>One h1 per page, no skipped heading levels, every page has a title and description, every image has an alt attribute (empty for decoration)</td></tr>
+        <tr><th scope="row">Page weight</th><td>About 30 KB or less for any page, including images</td></tr>
       </tbody>
     </table>
 
     <h2>What was fixed during testing</h2>
     <ul>
-      <li>The concept notice at the top sat outside any landmark. It is now a labelled region.</li>
-      <li>The meetings table scrolled sideways on narrow screens. It now stacks.</li>
-      <li>The document filter was a small target. It is now at least 44 pixels tall.</li>
-      <li>Only the home page had a description. Every page has one now.</li>
+      <li>The October 28 redesign passed the automated checks on the first run.</li>
+      <li>The illustrations are hidden from screen readers when they only decorate, and the fire station picture has a description.</li>
+      <li>Dates shown in calendar-style badges are hidden from screen readers, because the full date is written out beside them.</li>
     </ul>
 
     <h2>Not yet tested</h2>

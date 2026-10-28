@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE5D3"/><stop offset="1" stop-color="#E1D7C0"/></linearGradient>
+  <g id="p"><circle r="17"/><path d="M-26 0a26 22 0 0 1 52 0v8h-52z" transform="translate(0 40)"/></g></defs>
+  <rect width="800" height="520" fill="url(#w)"/>
+  <rect y="360" width="800" height="160" fill="#B79C74"/>
+  <path d="M0 360h800" stroke="#9A8059" stroke-width="4"/>
+  <!-- wall: flag, seal, windows -->
+  <g fill="#37566B"><path d="M80 80v170a40 40 0 0 0 0 0h0V80a0 0 0 0 1 0 0Z" opacity="0"/><rect x="70" y="70" width="90" height="170" rx="45" ry="45"/><rect x="640" y="70" width="90" height="170" rx="45" ry="45"/></g>
+  <g stroke="#E1D7C0" stroke-width="4"><path d="M115 70v170M70 150h90M685 70v170M640 150h90"/></g>
+  <circle cx="400" cy="140" r="64" fill="#1E5A3C"/><circle cx="400" cy="140" r="54" fill="none" stroke="#E3C26A" stroke-width="3"/>
+  <path d="M400 108c-5 14-5 28 0 56M400 124c-10 0-16 6-18 14M400 124c10 0 16 6 18 14M400 140c-8 0-14 4-16 11M400 140c8 0 14 4 16 11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- dais -->
+  <rect x="190" y="268" width="420" height="40" rx="6" fill="#6B4A32"/><rect x="190" y="268" width="420" height="10" rx="5" fill="#85603F"/>
+  <rect x="190" y="308" width="420" height="52" fill="#58392A"/>
+  <g fill="#1E5A3C"><use href="#p" x="260" y="226"/><use href="#p" x="330" y="226" fill="#B5472F"/><use href="#p" x="400" y="226" fill="#37566B"/><use href="#p" x="470" y="226" fill="#7A5A9A"/><use href="#p" x="540" y="226" fill="#C2862B"/></g>
+  <g fill="#FFF" opacity=".9"><rect x="244" y="284" width="32" height="12" rx="2"/><rect x="314" y="284" width="32" height="12" rx="2"/><rect x="384" y="284" width="32" height="12" rx="2"/><rect x="454" y="284" width="32" height="12" rx="2"/><rect x="524" y="284" width="32" height="12" rx="2"/></g>
+  <!-- audience (backs of heads) -->
+  <g fill="#3A3F3D"><use href="#p" x="140" y="430" fill="#4F6A5A"/><use href="#p" x="260" y="440" fill="#8A5A3A"/><use href="#p" x="380" y="432" fill="#37566B"/><use href="#p" x="500" y="442" fill="#A9483A"/><use href="#p" x="620" y="430" fill="#6B5A8A"/></g>
+  <g fill="#5A3D2B"><rect x="90" y="380" width="620" height="10" rx="5" opacity=".35"/></g>
+</svg>

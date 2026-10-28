@@ -63,3 +63,8 @@ export const faq = [
 ];
 export const fmtDate = (iso: string) =>
   new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+export const dateParts = (iso: string) => {
+  const d = new Date(iso + 'T12:00:00');
+  return { m: d.toLocaleDateString('en-US', { month: 'short' }), d: String(d.getDate()) };
+};
+export const initials = (name: string) => name.replace(/^(Chief|Dr\.?)\s+/, '').split(' ').map((p) => p[0]).slice(0, 2).join('');

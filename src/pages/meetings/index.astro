@@ -3,10 +3,8 @@ import Township from '../../layouts/Township.astro';
 import { meetings, fmtDate } from '../../data/township';
 const sorted = [...meetings].sort((a, b) => b.date.localeCompare(a.date));
 ---
-<Township title="Meetings">
-  <div class="wrap">
-    <h1>Meetings</h1>
-    <p>All meetings are open to the public. Agendas are posted at least a week before each meeting.</p>
+<Township title="Meetings" heading="Meetings" lead="All meetings are open to the public. Agendas are posted at least a week before each meeting.">
+  <div class="wrap body">
     <table class="stack">
       <caption>Meeting schedule, newest first</caption>
       <thead><tr><th scope="col">Date</th><th scope="col">Body</th><th scope="col">Time and place</th><th scope="col">Papers</th></tr></thead>

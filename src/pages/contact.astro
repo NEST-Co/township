@@ -1,11 +1,16 @@
 ---
 import Township from '../layouts/Township.astro';
+import Icon from '../components/Icon.astro';
 import { site } from '../data/township';
 ---
-<Township title="Contact">
-  <div class="wrap">
-    <h1>Contact the township</h1>
-    <p>{site.address}<br />Phone: {site.phone}<br />Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />Hours: {site.hours}</p>
-    <p>This is a concept site, so there is no contact form.</p>
+<Township title="Contact" heading="Contact the township" lead="Call, write or stop by. We will point you to the right person.">
+  <div class="wrap body">
+    <div class="contact-grid">
+      <div class="panel"><span class="ico"><Icon name="pin" size={32} /></span><h2 style="font-size:1.2rem">Visit</h2><p>{site.address}</p></div>
+      <div class="panel"><span class="ico"><Icon name="phone" size={32} /></span><h2 style="font-size:1.2rem">Call</h2><p>{site.phone}</p></div>
+      <div class="panel"><span class="ico"><Icon name="contact" size={32} /></span><h2 style="font-size:1.2rem">Email</h2><p><a href={`mailto:${site.email}`}>{site.email}</a></p></div>
+      <div class="panel"><span class="ico"><Icon name="clock" size={32} /></span><h2 style="font-size:1.2rem">Office hours</h2><p>{site.hours}</p></div>
+    </div>
+    <p style="margin-top:1.5rem">This is a concept site, so there is no contact form.</p>
   </div>
 </Township>

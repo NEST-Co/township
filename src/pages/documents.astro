@@ -1,18 +1,22 @@
 ---
 import Township from '../layouts/Township.astro';
+import Icon from '../components/Icon.astro';
 import { documents, fmtDate } from '../data/township';
 const types = [...new Set(documents.map((d) => d.type))].sort();
 ---
-<Township title="Documents">
-  <div class="wrap">
-    <h1>Documents</h1>
-    <p>Each file shows its type and size. Need one in another format? <a href="/contact">Ask the office</a>.</p>
+<Township title="Documents" heading="Documents" lead="Forms, minutes, budgets and resolutions. Each file shows its type and size.">
+  <div class="wrap body">
+    <p>Need one in another format? <a href="/contact">Ask the office</a>.</p>
     <label for="type">Show</label>
     <select id="type"><option value="">All documents</option>{types.map((t) => <option>{t}</option>)}</select>
     <p id="status" role="status" class="visually-hidden"></p>
-    <ul id="docs">
+    <ul id="docs" class="docs">
       {documents.map((d) => (
-        <li data-type={d.type}><a href={d.file}>{d.title}</a> ({d.format}, {d.size}), <time datetime={d.date}>{fmtDate(d.date)}</time></li>
+        <li data-type={d.type}>
+          <span class="ico"><Icon name="doc" /></span>
+          <span><a href={d.file}>{d.title}</a><span class="meta">{d.format}, {d.size} · <time datetime={d.date}>{fmtDate(d.date)}</time></span></span>
+          <span class="pill">{d.type}</span>
+        </li>
       ))}
     </ul>
   </div>

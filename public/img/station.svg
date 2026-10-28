@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C98F"/><stop offset=".6" stop-color="#F8E4C0"/><stop offset="1" stop-color="#FBEFD6"/></linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#s)"/>
+  <circle cx="640" cy="120" r="60" fill="#FFF3CF" opacity=".9"/>
+  <path d="M0 330C140 290 260 310 400 290S640 270 800 300V520H0Z" fill="#9DBB96"/>
+  <rect x="60" y="190" width="680" height="190" fill="#A9483A"/>
+  <rect x="48" y="176" width="704" height="20" fill="#7C3329"/>
+  <g stroke="#933F32" stroke-width="2" opacity=".7"><path d="M60 214h680M60 238h680M60 262h680M60 286h680M60 310h680M60 334h680M60 358h680"/></g>
+  <rect x="86" y="206" width="628" height="24" fill="#F3EBD8"/>
+  <text x="400" y="224" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="17" letter-spacing="6" fill="#A9483A">FERNHOLLOW FIRE &amp; EMS · STATION 1</text>
+  <g>
+    <rect x="96" y="246" width="170" height="134" fill="#EDE8DC" rx="4"/><rect x="298" y="246" width="170" height="134" fill="#EDE8DC" rx="4"/><rect x="500" y="246" width="170" height="134" fill="#EDE8DC" rx="4"/>
+    <g stroke="#C7C1B1" stroke-width="3"><path d="M96 276h170M96 306h170M96 336h170M96 366h170M298 276h170M298 306h170M298 336h170M298 366h170M500 276h170M500 306h170M500 336h170M500 366h170"/></g>
+    <g fill="#37566B"><rect x="112" y="254" width="138" height="14" rx="2"/><rect x="314" y="254" width="138" height="14" rx="2"/><rect x="516" y="254" width="138" height="14" rx="2"/></g>
+  </g>
+  <rect x="690" y="246" width="40" height="134" fill="#37566B"/><rect x="696" y="262" width="28" height="48" fill="#BFD8E3"/>
+  <!-- engine in middle bay -->
+  <g transform="translate(318 300)">
+    <rect width="130" height="68" rx="8" fill="#C2392B"/><rect x="6" y="12" width="40" height="30" rx="3" fill="#BFD8E3"/>
+    <rect x="52" y="12" width="68" height="8" fill="#E8E4DA"/><rect x="0" y="46" width="130" height="6" fill="#F3EBD8"/>
+    <circle cx="28" cy="70" r="12" fill="#222"/><circle cx="104" cy="70" r="12" fill="#222"/><circle cx="28" cy="70" r="5" fill="#999"/><circle cx="104" cy="70" r="5" fill="#999"/>
+    <rect x="48" y="-8" width="62" height="6" rx="3" fill="#F3EBD8"/>
+  </g>
+  <rect x="0" y="380" width="800" height="140" fill="#4C524F"/>
+  <rect x="0" y="372" width="800" height="12" fill="#D9D3C2"/>
+  <path d="M0 450H800" stroke="#E8C85C" stroke-width="4" stroke-dasharray="40 30"/>
+  <g transform="translate(20 330)"><rect x="-3" y="0" width="6" height="52" fill="#5A3D2B" transform="translate(30 0)"/><ellipse cx="30" cy="-8" rx="40" ry="46" fill="#D9822B"/><ellipse cx="14" cy="8" rx="22" ry="26" fill="#E3B04B"/></g>
+  <g transform="translate(760 340)"><rect x="-3" y="0" width="6" height="44" fill="#5A3D2B"/><ellipse cx="0" cy="-10" rx="34" ry="40" fill="#B5472F"/></g>
+</svg>

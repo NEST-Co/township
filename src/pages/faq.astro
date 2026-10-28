@@ -2,9 +2,8 @@
 import Township from '../layouts/Township.astro';
 import { faq } from '../data/township';
 ---
-<Township title="Frequently asked questions">
-  <div class="wrap">
-    <h1>Frequently asked questions</h1>
+<Township title="Frequently asked questions" heading="Frequently asked questions" lead="Quick answers to what residents ask most.">
+  <div class="wrap body" style="max-width:860px">
     {faq.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
   </div>
 </Township>

@@ -1,12 +1,26 @@
 ---
 import Township from '../layouts/Township.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/township';
+const items = [
+  { id: 'zoning', icon: 'zoning', h: 'Zoning permits', p: 'Most changes to a building or lot need a permit first. Download the application from Documents, then bring it to the office or email it to us.', link: ['/documents', 'Go to Documents'] },
+  { id: 'records', icon: 'records', h: 'Public records', p: 'You can ask for public records in person, by mail or by email. You do not need to say why you want them.', link: ['/documents', 'Records request form'] },
+  { id: 'roads', icon: 'roads', h: 'Roads', p: 'To report a pothole, a downed tree or a flooded road, call the township office during business hours.', link: ['/notices', 'Current road closures'] },
+  { id: 'cemetery', icon: 'cemetery', h: 'Cemetery', p: 'Contact the office for plot availability and burial arrangements.', link: ['/contact', 'Contact the office'] },
+];
 ---
-<Township title="Services">
-  <div class="wrap">
-    <h1>Services</h1>
-    <section id="zoning"><h2>Zoning permits</h2><p>Most changes to a building or lot need a permit first. Download the application from <a href="/documents">Documents</a>, then bring it to the office or email it to us.</p></section>
-    <section id="records"><h2>Public records</h2><p>You can ask for public records in person, by mail or by email. You do not need to say why you want them.</p></section>
-    <section id="roads"><h2>Roads</h2><p>To report a pothole, a downed tree or a flooded road, call the township office during business hours.</p></section>
-    <section id="cemetery"><h2>Cemetery</h2><p>Contact the office for plot availability and burial arrangements.</p></section>
+<Township title="Services" heading="Township services" lead="What the township handles, and the quickest way to get it done.">
+  <div class="wrap body">
+    <div class="callout"><p><strong>Not sure who to call?</strong> The office can point you to the right place: {site.phone}.</p></div>
+    <div class="cards">
+      {items.map((s) => (
+        <section class="svc" id={s.id}>
+          <span class="ico"><Icon name={s.icon} /></span>
+          <h2>{s.h}</h2>
+          <p>{s.p}</p>
+          <p style="margin-top:1rem"><a href={s.link[0]}><strong>{s.link[1]}</strong> &rarr;</a></p>
+        </section>
+      ))}
+    </div>
   </div>
 </Township>
