@@ -1,0 +1,32 @@
+---
+import Township from '../layouts/Township.astro';
+import { tasks, meetings, notices, events, site, fmtDate } from '../data/township';
+const today = new Date().toISOString().slice(0, 10);
+const next = meetings.filter((m) => m.date >= today).sort((a, b) => a.date.localeCompare(b.date))[0] ?? meetings[0];
+---
+<Township title="Fernhollow Township" description="Services, meetings, documents and notices for Fernhollow Township residents.">
+  <div class="hero"><div class="wrap">
+    <h1>Welcome to Fernhollow Township</h1>
+    <p>Find a form, a meeting date or a phone number in two clicks. The office is open {site.hours}</p>
+  </div></div>
+  <div class="wrap">
+    <h2>What do you need to do?</h2>
+    <ul class="grid">{tasks.map((t) => <li><a class="card" href={t.href}>{t.label}</a></li>)}</ul>
+    <div class="two">
+      <section>
+        <h2>Next meeting</h2>
+        <p><strong>{next.body}</strong><br />{fmtDate(next.date)} at {next.time}, {next.place}.</p>
+        <p><a href="/meetings">All meetings, agendas and minutes</a></p>
+        <h2>Coming up</h2>
+        <ul>{events.map((e) => <li><time datetime={e.date}>{fmtDate(e.date)}</time>: {e.title}, {e.place}</li>)}</ul>
+      </section>
+      <section>
+        <h2>Notices</h2>
+        {notices.slice(0, 3).map((n) => (
+          <article><h3>{n.title}</h3><p><time datetime={n.date}>{fmtDate(n.date)}</time></p><p>{n.body}</p></article>
+        ))}
+        <p><a href="/notices">All notices</a></p>
+      </section>
+    </div>
+  </div>
+</Township>

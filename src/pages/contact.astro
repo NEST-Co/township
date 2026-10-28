@@ -1,0 +1,11 @@
+---
+import Township from '../layouts/Township.astro';
+import { site } from '../data/township';
+---
+<Township title="Contact">
+  <div class="wrap">
+    <h1>Contact the township</h1>
+    <p>{site.address}<br />Phone: {site.phone}<br />Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />Hours: {site.hours}</p>
+    <p>This is a concept site, so there is no contact form.</p>
+  </div>
+</Township>

@@ -1,0 +1,10 @@
+---
+import Township from '../layouts/Township.astro';
+import { notices, fmtDate } from '../data/township';
+---
+<Township title="Notices">
+  <div class="wrap">
+    <h1>Notices</h1>
+    {notices.map((n) => (<article><h2>{n.title}</h2><p><time datetime={n.date}>{fmtDate(n.date)}</time></p><p>{n.body}</p></article>))}
+  </div>
+</Township>

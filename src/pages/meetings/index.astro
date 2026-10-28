@@ -1,0 +1,25 @@
+---
+import Township from '../../layouts/Township.astro';
+import { meetings, fmtDate } from '../../data/township';
+const sorted = [...meetings].sort((a, b) => b.date.localeCompare(a.date));
+---
+<Township title="Meetings">
+  <div class="wrap">
+    <h1>Meetings</h1>
+    <p>All meetings are open to the public. Agendas are posted at least a week before each meeting.</p>
+    <table class="stack">
+      <caption>Meeting schedule, newest first</caption>
+      <thead><tr><th scope="col">Date</th><th scope="col">Body</th><th scope="col">Time and place</th><th scope="col">Papers</th></tr></thead>
+      <tbody>
+        {sorted.map((m) => (
+          <tr>
+            <th scope="row"><time datetime={m.date}>{fmtDate(m.date)}</time></th>
+            <td data-label="Body">{m.body}</td>
+            <td data-label="Time and place">{m.time}, {m.place}</td>
+            <td data-label="Papers">{[m.agenda && 'Agenda', m.minutes && 'Minutes'].filter(Boolean).join(', ') || 'Not yet posted'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Township>
