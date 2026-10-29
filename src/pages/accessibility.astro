@@ -7,18 +7,18 @@ import Township from '../layouts/Township.astro';
 
     <h2>Test results, October 28, 2026</h2>
     <table>
-      <caption>Automated and scripted checks, run after the October 28 redesign</caption>
+      <caption>Automated and scripted checks, run after the October 28 redesign and the photo update</caption>
       <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
       <tbody>
         <tr><th scope="row">axe-core (WCAG 2.0 and 2.1 A and AA, plus best practices)</th><td>0 violations on all 11 pages, at phone and desktop sizes</td></tr>
-        <tr><th scope="row">Lighthouse accessibility (5 pages: home, services, documents, meetings, about, phone profile)</th><td>100 on every page tested</td></tr>
-        <tr><th scope="row">Lighthouse performance</th><td>98 to 100; the home page, with its illustration, is the heaviest</td></tr>
+        <tr><th scope="row">Lighthouse accessibility (3 pages: home, about, Fire &amp; EMS, phone profile)</th><td>100 on every page tested</td></tr>
+        <tr><th scope="row">Lighthouse performance</th><td>93 to 100; the home page is the heaviest because of its large photo</td></tr>
         <tr><th scope="row">Lighthouse best practices</th><td>100 on every page tested</td></tr>
         <tr><th scope="row">Keyboard</th><td>Skip link is the first stop and every stop shows a visible focus ring</td></tr>
         <tr><th scope="row">Reflow at 320 and 640 pixels wide</th><td>No horizontal scrolling</td></tr>
         <tr><th scope="row">Text spacing</th><td>No clipped text</td></tr>
         <tr><th scope="row">Structure</th><td>One h1 per page, no skipped heading levels, every page has a title and description, every image has an alt attribute (empty for decoration)</td></tr>
-        <tr><th scope="row">Page weight</th><td>About 30 KB or less for any page, including images</td></tr>
+        <tr><th scope="row">Page weight</th><td>About 350 KB for the home page, which has a large photo, and about 205 KB or less for every other page, including images</td></tr>
       </tbody>
     </table>
 
@@ -27,12 +27,13 @@ import Township from '../layouts/Township.astro';
       <li>The October 28 redesign passed the automated checks on the first run.</li>
       <li>The illustrations are hidden from screen readers when they only decorate, and the fire station picture has a description.</li>
       <li>Dates shown in calendar-style badges are hidden from screen readers, because the full date is written out beside them.</li>
+      <li>The photos were resized to about twice the size they show on screen, which brought the home page performance score back up.</li>
     </ul>
 
     <h2>Not yet tested</h2>
     <ul>
       <li>Manual screen reader testing (VoiceOver, NVDA). This statement will be updated when it is done.</li>
-      <li>Lighthouse "SEO" shows 60, not 100, because the site is deliberately marked <code>noindex</code> so search engines skip this concept project.</li>
+      <li>Lighthouse "SEO" shows 60 to 63, not 100, because the site is deliberately marked <code>noindex</code> so search engines skip this concept project.</li>
     </ul>
 
     <p>Tools: axe-core, Lighthouse 12, and Nest Co.'s own scripted checks.</p>
